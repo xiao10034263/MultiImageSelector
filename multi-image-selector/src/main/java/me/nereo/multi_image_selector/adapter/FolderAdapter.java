@@ -85,12 +85,17 @@ public class FolderAdapter extends BaseAdapter {
                         getTotalImageSize(), mContext.getResources().getString(R.string.photo_unit)));
                 if(mFolders.size()>0){
                     Folder f = mFolders.get(0);
-                    Picasso.with(mContext)
-                            .load(new File(f.cover.path))
-                            .error(R.drawable.default_error)
-                            .resizeDimen(R.dimen.folder_cover_size, R.dimen.folder_cover_size)
-                            .centerCrop()
-                            .into(holder.cover);
+                    if(f.cover==null){
+                        holder.cover.setImageResource(R.drawable.default_error);
+                    }else{
+                        Picasso.with(mContext)
+                                .load(new File(f.cover.path))
+                                .error(R.drawable.default_error)
+                                .resizeDimen(R.dimen.folder_cover_size, R.dimen.folder_cover_size)
+                                .centerCrop()
+                                .into(holder.cover);
+                    }
+
                 }
             }else {
                 holder.bindData(getItem(i));

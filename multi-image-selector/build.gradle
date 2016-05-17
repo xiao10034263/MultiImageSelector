@@ -27,9 +27,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile files('libs/picasso-2.4.0.jar')
 }
 
 //添加
@@ -37,6 +37,6 @@ publish {
     userOrg = 'baichuang'//bintray.com用户名
     groupId = 'com.baichuang'//jcenter上的路径
     artifactId = 'multi-image-selector'//项目名称
-    publishVersion = '1.0.0'//版本号desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
+    publishVersion = '1.0.3'//版本号desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
     website = 'http://www.cnblogs.com/xiaoxiao-study/'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
